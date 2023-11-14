@@ -5,8 +5,8 @@
   "main": "postcss.config.js",
   "scripts": {
     "build": "tailwindcss -i themes/aalmazan/css/styles.css -o themes/aalmazan/css/tailwind.css",
-    "dist": "npm run tw-build && postcss themes/aalmazan/css/tailwind.css -o themes/aalmazan/static/css/styles.css",
-    "dev": "npm run tw-build && npm run tw-dist",
+    "dist": "npm run build && postcss themes/aalmazan/css/tailwind.css -o themes/aalmazan/static/css/styles.css",
+    "dev": "npm run build && npm run dist",
     "serve": "npm run dev && make html && make serve",
     "watch": "tailwindcss -i ./themes/aalmazan/css/styles.css -o ./themes/aalmazan/static/css/styles.css --watch"
   },

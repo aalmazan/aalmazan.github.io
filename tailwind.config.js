@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "themes/aalmazan/**/*.html",
     "content/**/*.md",
+    "output/**/*.html",
   ],
   darkMode: false,
   theme: {

@@ -7,7 +7,11 @@ module.exports = {
     require("tailwindcss"),
     require("autoprefixer"),
     purgecss({
-      content: ['./themes/aalmazan/**/*.html']
+      content: [
+        './themes/aalmazan/**/*.html',
+        './content/**/*.md',
+        './output/**/*.html',
+      ]
     }),
     cssnano({preset: require("cssnano-preset-advanced")})
   ],
