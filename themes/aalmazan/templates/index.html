@@ -7,8 +7,8 @@ Categories |
 {% set content_title = "Posts" %}
 
 {% block content %}
-<div class="flex justify-center">
-  <div class="max-w-prose">
+<div class="flex sm:justify-center">
+  <div class="">
     {% for article in articles_page.object_list %}
     <article class="py-4">
       <time class="text-gray-400" datetime="{{ article.date.isoformat() }}">
@@ -16,14 +16,14 @@ Categories |
       </time>
 
       <div class="">
-        <h2 class="text-3xl font-medium leading-8 tracking-tight hover:underline">
+        <h2 class="text-xl font-medium leading-8 tracking-tight hover:underline">
           <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
         </h2>
 
         {% if article.tags %}
         <div class="">
           {% for tag in article.tags %}
-          <a class="mr-3 text-xs font-medium uppercase text-gray-400 hover:text-gray-100"
+          <a class="mr-3 text-xs font-medium uppercase text-gray-400 hover:text-gray-600 dark:hover:text-gray-100"
              href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
           {% endfor %}
         </div>
