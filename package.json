@@ -7,8 +7,8 @@
     "build": "cat themes/aalmazan/css/bootstrap.css themes/aalmazan/css/styles.css | postcss -o themes/aalmazan/static/css/styles.css",
     "dist": "npm run build && npm run min",
     "tw-build": "tailwindcss -i themes/aalmazan-tw/css/styles.css -o themes/aalmazan-tw/css/tailwind.css",
-    "tw-min": "postcss themes/aalmazan-tw/css/tailwind.css -o themes/aalmazan-tw/static/css/styles.css",
-    "tw-dev": "npm run tw-build && npm run tw-min",
+    "tw-dist": "npm run tw-build && postcss themes/aalmazan-tw/css/tailwind.css -o themes/aalmazan-tw/static/css/styles.css",
+    "tw-dev": "npm run tw-build && npm run tw-dist",
     "tw-serve": "npm run dev && make html && make serve",
     "tw-watch": "tailwindcss -i ./themes/aalmazan-tw/css/styles.css -o ./themes/aalmazan-tw/static/css/styles.css --watch"
   },
