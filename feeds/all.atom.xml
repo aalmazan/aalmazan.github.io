@@ -13,7 +13,7 @@ best efforts to do so. The themes list provided at &lt;a href="https://pelicanth
 are a great resource. &lt;code&gt;Flex&lt;/code&gt;, &lt;code&gt;crowsfoot&lt;/code&gt; and &lt;code&gt;cid&lt;/code&gt; were my top choices, but they all had just &lt;em&gt;too
 much&lt;/em&gt; extra fluff I didn't want to spend ripping out, so I started mostly from scratch with &lt;code&gt;cid&lt;/code&gt; as
 the base.&lt;/p&gt;
-&lt;div class="flex justify-center align-items-center"&gt;
+&lt;div class="not-prose flex justify-center align-items-center"&gt;
 &lt;svg class="fill-current h-5 w-5" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24.001" xmlns="http://www.w3.org/2000/svg"&gt;
 &lt;path d="m22.196 5.6726c-2.1185-3.4041-5.8947-5.6726-10.197-5.6726-6.6233 0-11.999 5.3773-11.999 11.999 0 6.6245 5.3761 12.002 11.999 12.002 6.2956 0 11.466-4.8588 11.962-11.028 0.02881-0.36249-0.22686-0.97344-0.89902-0.97344-0.46932 0-0.85822 0.36009-0.89662 0.82821-0.4213 5.2441-4.8156 9.3731-10.167 9.3731-5.6294 0-10.199-4.5707-10.199-10.201 0-5.6282 4.5695-10.199 10.199-10.199 3.6453 0 6.8465 1.9169 8.6494 4.7952l-2.3898 6e-3c-0.49692 0-0.90022 0.4033-0.90022 0.90022s0.4033 0.90023 0.90022 0.90023h4.8408c0.49692 0 0.90022-0.4033 0.90022-0.90023v-4.86c0-0.49692-0.4033-0.90022-0.90022-0.90022s-0.90022 0.4021-0.90022 0.90022zm-11.405 0.025206 0.0084 6.6773c0 0.34569 0.19805 0.66016 0.50893 0.8102l4.7748 2.3142c0.44771 0.21605 0.98545 0.02881 1.2015-0.4189 0.21605-0.44771 0.02881-0.98545-0.4189-1.2015l-4.2671-2.0705-0.0072-6.1131c0-0.49692-0.4045-0.90023-0.90022-0.89902-0.49692 0-0.90022 0.4045-0.90022 0.90143z" fill="#fff" fill-rule="nonzero" stroke-width="1.2003"/&gt;
 &lt;/svg&gt;
@@ -24,7 +24,7 @@ the base.&lt;/p&gt;
 classes like &lt;a href="https://tailwindcss.com/"&gt;Tailwind CSS&lt;/a&gt;. And!
 This &lt;a href="https://startbootstrap.com/previews/clean-blog"&gt;Clean Blog Theme&lt;/a&gt; looks excellent with
 Bootstrap as its base.&lt;/p&gt;
-&lt;div class="flex justify-center align-items-center"&gt;
+&lt;div class="not-prose flex justify-center align-items-center"&gt;
 &lt;svg class="fill-current h-5 w-5" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24.001" xmlns="http://www.w3.org/2000/svg"&gt;
 &lt;path d="m22.196 5.6726c-2.1185-3.4041-5.8947-5.6726-10.197-5.6726-6.6233 0-11.999 5.3773-11.999 11.999 0 6.6245 5.3761 12.002 11.999 12.002 6.2956 0 11.466-4.8588 11.962-11.028 0.02881-0.36249-0.22686-0.97344-0.89902-0.97344-0.46932 0-0.85822 0.36009-0.89662 0.82821-0.4213 5.2441-4.8156 9.3731-10.167 9.3731-5.6294 0-10.199-4.5707-10.199-10.201 0-5.6282 4.5695-10.199 10.199-10.199 3.6453 0 6.8465 1.9169 8.6494 4.7952l-2.3898 6e-3c-0.49692 0-0.90022 0.4033-0.90022 0.90022s0.4033 0.90023 0.90022 0.90023h4.8408c0.49692 0 0.90022-0.4033 0.90022-0.90023v-4.86c0-0.49692-0.4033-0.90022-0.90022-0.90022s-0.90022 0.4021-0.90022 0.90022zm-11.405 0.025206 0.0084 6.6773c0 0.34569 0.19805 0.66016 0.50893 0.8102l4.7748 2.3142c0.44771 0.21605 0.98545 0.02881 1.2015-0.4189 0.21605-0.44771 0.02881-0.98545-0.4189-1.2015l-4.2671-2.0705-0.0072-6.1131c0-0.49692-0.4045-0.90023-0.90022-0.89902-0.49692 0-0.90022 0.4045-0.90022 0.90143z" fill="#fff" fill-rule="nonzero" stroke-width="1.2003"/&gt;
 &lt;/svg&gt;
@@ -49,6 +49,8 @@ to get started on the frontend build side of things. In short:&lt;/p&gt;
 &lt;li&gt;For development, use something like below where &lt;code&gt;styles.css&lt;/code&gt; contains your &lt;code&gt;@tailwind&lt;/code&gt;
   directives (&lt;a href="https://tailwindcss.com/docs/installation"&gt;see docs&lt;/a&gt;):&lt;/li&gt;
 &lt;/ul&gt;
+&lt;div class="not-prose"&gt;
+
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;// package.json&lt;/span&gt;
 &lt;span class="p"&gt;{&lt;/span&gt;
 &lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
@@ -57,7 +59,10 @@ to get started on the frontend build side of things. In short:&lt;/p&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;div class="flex justify-center align-items-center"&gt;
+
+&lt;/div&gt;
+
+&lt;div class="not-prose flex justify-center align-items-center"&gt;
 &lt;svg class="fill-current h-5 w-5" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24.001" xmlns="http://www.w3.org/2000/svg"&gt;
 &lt;path d="m22.196 5.6726c-2.1185-3.4041-5.8947-5.6726-10.197-5.6726-6.6233 0-11.999 5.3773-11.999 11.999 0 6.6245 5.3761 12.002 11.999 12.002 6.2956 0 11.466-4.8588 11.962-11.028 0.02881-0.36249-0.22686-0.97344-0.89902-0.97344-0.46932 0-0.85822 0.36009-0.89662 0.82821-0.4213 5.2441-4.8156 9.3731-10.167 9.3731-5.6294 0-10.199-4.5707-10.199-10.201 0-5.6282 4.5695-10.199 10.199-10.199 3.6453 0 6.8465 1.9169 8.6494 4.7952l-2.3898 6e-3c-0.49692 0-0.90022 0.4033-0.90022 0.90022s0.4033 0.90023 0.90022 0.90023h4.8408c0.49692 0 0.90022-0.4033 0.90022-0.90023v-4.86c0-0.49692-0.4033-0.90022-0.90022-0.90022s-0.90022 0.4021-0.90022 0.90022zm-11.405 0.025206 0.0084 6.6773c0 0.34569 0.19805 0.66016 0.50893 0.8102l4.7748 2.3142c0.44771 0.21605 0.98545 0.02881 1.2015-0.4189 0.21605-0.44771 0.02881-0.98545-0.4189-1.2015l-4.2671-2.0705-0.0072-6.1131c0-0.49692-0.4045-0.90023-0.90022-0.89902-0.49692 0-0.90022 0.4045-0.90022 0.90143z" fill="#fff" fill-rule="nonzero" stroke-width="1.2003"/&gt;
 &lt;/svg&gt;
