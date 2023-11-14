@@ -7,7 +7,7 @@ Categories |
 {% set content_title = "Posts" %}
 
 {% block content %}
-<div class="flex sm:justify-center">
+<div class="flex justify-center">
   <div class="">
     {% for article in articles_page.object_list %}
     <article class="py-4">
@@ -39,7 +39,7 @@ Categories |
 </div>
 
 {% if DEFAULT_PAGINATION %}
-<div class="paginator py-2 mt-auto">
+<div class="flex justify-center text-left py-2 mt-auto">
   {% if articles_page.has_previous() %}
   {% if articles_page.previous_page_number() == 1 %}
   <a href="{{ SITEURL }}/{{ page_name }}.html">&lt;&lt;&lt;</a>

@@ -7,7 +7,7 @@ Archives |
 {% endblock %}
 
 {% block content %}
-<div class="post-list">
+<div class="flex justify-center">
   {% for article in dates %}
   <article class="py-4">
     <time class="text-gray-400" datetime="{{ article.date.isoformat() }}">
