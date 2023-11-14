@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "themes/aalmazan-tw/**/*.html",
+    "themes/aalmazan/**/*.html",
     "content/**/*.md",
   ],
   darkMode: false,
