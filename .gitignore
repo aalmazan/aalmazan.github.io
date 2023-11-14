@@ -2,3 +2,4 @@ _site/
 .sass-cache/
 __pycache__/
 node_modules/
+output/
