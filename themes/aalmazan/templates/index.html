@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}
+Categories |
+{% endblock %}
+
+{% set content_title = "Posts" %}
+
+{% block content %}
+<div class="flex justify-center">
+  <div class="max-w-prose">
+    {% for article in articles_page.object_list %}
+    <article class="py-4">
+      <time class="text-gray-400" datetime="{{ article.date.isoformat() }}">
+        {{ article.date.strftime('%b %d, %Y') }}
+      </time>
+
+      <div class="">
+        <h2 class="text-3xl font-medium leading-8 tracking-tight hover:underline">
+          <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+        </h2>
+
+        {% if article.tags %}
+        <div class="">
+          {% for tag in article.tags %}
+          <a class="mr-3 text-xs font-medium uppercase text-gray-400 hover:text-gray-100"
+             href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      <div class="mt-4 prose">{{ article.summary }}</div>
+      <div class="">
+        <a class="btn btn-link pl-0 text-xs hover:no-underline" href="{{ SITEURL }}/{{ article.url }}">Read</a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</div>
+
+{% if DEFAULT_PAGINATION %}
+<div class="paginator py-2 mt-auto">
+  {% if articles_page.has_previous() %}
+  {% if articles_page.previous_page_number() == 1 %}
+  <a href="{{ SITEURL }}/{{ page_name }}.html">&lt;&lt;&lt;</a>
+  {% else %}
+  <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.previous_page_number() }}.html">
+    &lt;&lt;&lt;
+  </a>
+  {% endif %}
+  {% endif %}
+  Page {{ articles_page.number }} / {{ articles_paginator.num_pages }}
+  {% if articles_page.has_next() %}
+  <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">
+    &gt;&gt;&gt;
+  </a>
+  {% endif %}
+</div>
+{% endif %}
+{% endblock content %}

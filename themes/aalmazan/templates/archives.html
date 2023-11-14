@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% set content_title = "Archives" %}
+
+{% block title %}
+Archives |
+{% endblock %}
+
+{% block content %}
+<div class="post-list">
+  {% for article in dates %}
+  <article class="space-y-2 lg:grid lg:grid-cols-4 lg:space-y-0 lg:items-baseline py-4">
+    <time class="text-gray-400" datetime="{{ article.date.isoformat() }}">
+      {{ article.date.strftime('%b %d, %Y') }}
+    </time>
+    <div class="space-y-3 lg:col-span-3">
+      <h2 class="text-xl font-medium leading-8 tracking-tight">
+        <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+      </h2>
+      <div class="flex flex-wrap">
+        {% for tag in article.tags %}
+        <a class="mr-3 text-xs font-medium uppercase text-gray-400 hover:text-gray-600 dark:hover:text-gray-100"
+           href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+        {% endfor %}
+      </div>
+      <div class="excerpt">{{ article.summary }}</div>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endblock content %}

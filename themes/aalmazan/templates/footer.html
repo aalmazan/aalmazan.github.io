@@ -1,0 +1,24 @@
+<footer class="blog-footer mt-auto">
+  <ul class="nav">
+    {% if USE_CUSTOM_MENU %}
+    {% for name, url in CUSTOM_MENUITEMS %}
+    <li><a href="{{ SITEURL }}/{{ url }}">{{ name }}</a></li>
+    {% endfor %}
+    {% else %}
+    {% for page in PAGES %}
+    <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+    {% endfor %}
+    {% endif %}
+    {% for title,url in CONTACTS %}
+    <li><a href="{{ url }}">{{ title|capitalize }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <p class="disclaimer mb-0 text-center">
+    {% if SITEFOOTER %}
+    {{ SITEFOOTER }}
+    {% else %}
+    Built with <a href="http://getpelican.com">Pelican</a>
+    {% endif %}
+  </p>
+</footer>

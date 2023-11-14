@@ -1,0 +1,29 @@
+{
+  "name": "aalmazan.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "postcss.config.js",
+  "scripts": {
+    "build": "tailwindcss -i themes/aalmazan/css/styles.css -o themes/aalmazan/css/tailwind.css",
+    "dist": "npm run build && postcss themes/aalmazan/css/tailwind.css -o themes/aalmazan/static/css/styles.css",
+    "dev": "npm run build && npm run dist",
+    "serve": "npm run dev && make html && make serve",
+    "watch": "tailwindcss -i ./themes/aalmazan/css/styles.css -o ./themes/aalmazan/static/css/styles.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^5.0.0",
+    "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.1",
+    "cssnano-preset-advanced": "^6.0.1",
+    "daisyui": "^3.9.3",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "purgecss": "^5.0.0",
+    "tailwindcss": "^3.3.5"
+  }
+}
