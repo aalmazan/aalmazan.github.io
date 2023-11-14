@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+Categories |
+{% endblock %}
+
+{% set content_title = "Categories" %}
+
+{% block content %}
+<div class="post-list">
+  <div class="flex divide-gray-200 dark:divide-gray-700 xl:pb-0 justify-center space-x-3">
+    {% for (category, articles) in categories %}
+    <article class="pt-4 pb-8 prose dark:prose-dark max-w-prose">
+      <a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a>
+    </article>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}
