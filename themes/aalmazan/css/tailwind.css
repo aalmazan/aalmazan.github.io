@@ -1978,6 +1978,10 @@ body h1, body h2 {
   font-weight: 400;
 }
 
+.highlight  {
+  max-width: 0;
+}
+
 .hover\:text-blue-500:hover {
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity));
@@ -2029,6 +2033,10 @@ body h1, body h2 {
 }
 
 @media (min-width: 640px) {
+  .sm\:justify-center {
+    justify-content: center;
+  }
+
   .sm\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -2050,10 +2058,6 @@ body h1, body h2 {
 
   .lg\:items-baseline {
     align-items: baseline;
-  }
-
-  .lg\:justify-center {
-    justify-content: center;
   }
 
   .lg\:space-y-0 > :not([hidden]) ~ :not([hidden]) {
