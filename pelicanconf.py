@@ -1,8 +1,6 @@
 AUTHOR = "Allan Almazan"
 SITENAME = "Allan Almazan"
-SITEURL = "https://blog.aalmazan.com"
 SITESUBTITLE = "A personal blog"
-# SITELOGO = "AA"
 
 PATH = "content"
 
@@ -11,6 +9,7 @@ TIMEZONE = "America/Los_Angeles"
 DEFAULT_LANG = "en"
 
 THEME = "themes/aalmazan"
+TEMPLATE_EXTENSIONS = [".html", ".j2"]
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
