@@ -27,30 +27,30 @@
 <body class="dark:text-white">
 <div class="max-w-3xl px-4 mx-auto sm:px-6 xl:max-w-5xl xl:px-0">
   {% block container %}
-  <div class="flex flex-col justify-between h-screen mb-auto">
-    {% include "header.html" %}
+    <div class="flex flex-col justify-between h-screen mb-auto">
+      {% include "header.j2" %}
 
-    <div class="mb-auto flex flex-col">
-      {% block content_title %}
-      <div class="flex justify-center pt-6">
-        <div class="">
-          <h2 class="text-3xl mb-1">{{ content_title }}</h2>
-          {% if date_time %}
-          <time datetime="{{ date_time.isoformat() }}">
-            {{ date_time.strftime('%b %d, %Y') }}
-          </time>
-          {% endif %}
-        </div>
+      <div class="mb-auto flex flex-col">
+        {% block content_title %}
+          <div class="flex justify-center pt-6">
+            <div class="">
+              <h2 class="text-3xl mb-1">{{ content_title }}</h2>
+              {% if date_time %}
+                <time datetime="{{ date_time.isoformat() }}">
+                  {{ date_time.strftime('%b %d, %Y') }}
+                </time>
+              {% endif %}
+            </div>
+          </div>
+        {% endblock %}
+        {% block content %}{% endblock %}
       </div>
-      {% endblock %}
-      {% block content %}{% endblock %}
-    </div>
 
-    {% include "footer.html" %}
-  </div>
+      {% include "footer.j2" %}
+    </div>
   {% endblock %}
 
-  {% include "partials/analytics.html" %}
+  {% include "partials/analytics.j2" %}
 </div>
 </body>
 
