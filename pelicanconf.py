@@ -9,7 +9,7 @@ TIMEZONE = "America/Los_Angeles"
 DEFAULT_LANG = "en"
 
 THEME = "themes/aalmazan"
-TEMPLATE_EXTENSIONS = [".html", ".j2"]
+TEMPLATE_EXTENSIONS = [".j2", ".html"]
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
