@@ -65,6 +65,11 @@ storage, but the majority of the cost was still the Pis and case. Anyway, parts 
 * [Anker 60W 6-Port USB Wall Charger](https://www.amazon.com/gp/product/B00P933OJC)
     * NOTE: This is potentially not enough to power all 3 Pis at full load.
 
+<div class="flex flex-col justify-center text-center">
+    <img class="m-0" alt="Raspberry Pi cluster" src="../images/pi-cluster-side.jpg" />
+    <small>Final result with terrible cable management</small>
+</div>
+
 ## Raspberry Pi setup
 
 Once all that was assembled, time to get thing dang things up and running. Below are some general
