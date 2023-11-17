@@ -49,6 +49,11 @@ storage, but the majority of the cost was still the Pis and case. Anyway, parts 
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;div class="flex flex-col justify-center text-center"&gt;
+    &lt;img class="m-0" alt="Raspberry Pi cluster" src="../images/pi-cluster-side.jpg" /&gt;
+    &lt;small&gt;Final result with terrible cable management&lt;/small&gt;
+&lt;/div&gt;
+
 &lt;h2&gt;Raspberry Pi setup&lt;/h2&gt;
 &lt;p&gt;Once all that was assembled, time to get thing dang things up and running. Below are some general
 instructions on what I did. The YouTube video above by NetworkChuck has a more detailed explanation
