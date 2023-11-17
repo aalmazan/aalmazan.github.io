@@ -1,5 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Allan Almazan</title><link href="https://blog.aalmazan.com/" rel="alternate"></link><link href="https://blog.aalmazan.com/feeds/all.atom.xml" rel="self"></link><id>https://blog.aalmazan.com/</id><updated>2023-11-12T00:00:00-08:00</updated><subtitle>A personal blog</subtitle><entry><title>The blog</title><link href="https://blog.aalmazan.com/posts/2023-11-the-blog.html" rel="alternate"></link><published>2023-11-12T00:00:00-08:00</published><updated>2023-11-12T00:00:00-08:00</updated><author><name>Allan Almazan</name></author><id>tag:blog.aalmazan.com,2023-11-12:/posts/2023-11-the-blog.html</id><summary type="html">&lt;p&gt;A more detailed look into more technical things about this blog.&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is a more detailed look into the bits and pieces that make up this blog. For a quick overview,
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Allan Almazan</title><link href="https://blog.aalmazan.com/" rel="alternate"></link><link href="https://blog.aalmazan.com/feeds/all.atom.xml" rel="self"></link><id>https://blog.aalmazan.com/</id><updated>2023-11-15T00:00:00-08:00</updated><subtitle>A personal blog</subtitle><entry><title>Getting more familiar with Kubernetes (and the Raspberry Pis to prove it) Part 1</title><link href="https://blog.aalmazan.com/posts/2023-11-kubernetes-rpi-pt-1.html" rel="alternate"></link><published>2023-11-15T00:00:00-08:00</published><updated>2023-11-15T00:00:00-08:00</updated><author><name>Allan Almazan</name></author><id>tag:blog.aalmazan.com,2023-11-15:/posts/2023-11-kubernetes-rpi-pt-1.html</id><summary type="html">&lt;p&gt;I made a Kubernetes cluster with a few Raspberry Pis. Was it worth it?&lt;/p&gt;</summary><content type="html">&lt;p&gt;I started this project over a year ago on a whim. At &lt;code&gt;$DAY_JOB&lt;/code&gt; I had to interact with Kubernetes,
+but there were times when I felt uneasy doing &lt;em&gt;anything&lt;/em&gt; with it.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ME: So just run: &lt;code&gt;kubectl apply -f maybe-a-scary-production-deployment.yml&lt;/code&gt; to update the staging
+server?&lt;/p&gt;
+&lt;p&gt;THEM: Yeah, after that you're good to go.&lt;/p&gt;
+&lt;p&gt;ME: But it says production in the filename.&lt;/p&gt;
+&lt;p&gt;THEM: Yeah, it's fine. You should have some settings that point you to the staging cluster. It's
+fine.&lt;/p&gt;
+&lt;p&gt;ME: Hmmm.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I've spent over 10 years working across the stack in terms of building
+sites/applications/infrastructure, but when it came to Kubernetes, it always felt like a mystical
+force that granted you &lt;em&gt;Zero-Downtime&lt;/em&gt;. It was time for that to change.&lt;/p&gt;
+&lt;h2&gt;The beginning&lt;/h2&gt;
+&lt;p&gt;I tried &lt;a href="https://kubernetes.io/docs/tutorials/"&gt;Kubernetes tutorials&lt;/a&gt;, official and otherwise. The
+terms make sense. I just needed more practical usage. I was also experimenting with (micro) services
+architecture, so my eyes opened wide when I saw this Udemy course on
+sale: &lt;a href="https://www.udemy.com/share/102VKE3@NvvIV6zas3ZRCkOZ-CK1CvlzrQbw3VaIn_MMF81SNtGH5RrXe8g4Lhcs2yt1e3x2qw==/"&gt;Microservices with Node JS and React&lt;/a&gt;.
+I purchased the course (July 2022) when it was $20, and at the time of writing, it's now at a
+whopping $130. For the amount of content the course has, it's definitely worth $20 -- unsure if I'd
+pay $130 if you already have general full stack knowledge of web applications.&lt;/p&gt;
+&lt;p&gt;After going through bits of the course, I quickly found out that running Kubernetes locally is kind
+of annoying and took up lots of resources. I didn't want to deal with creating and managing an
+AWS/GCP/etc. account, but surely I can build my own without having to build a $1,000+ server.&lt;/p&gt;
+&lt;p&gt;Thankfully, I ran into this YouTube video (the YouTube algorithm knows too
+much): "&lt;a href="https://www.youtube.com/watch?v=X9fSMGkjtug"&gt;i built a Raspberry Pi SUPER COMPUTER!!&lt;/a&gt;".
+Very useful video (IMO) for getting started, but apologies in advance if this type of content is
+not for you. If you'd prefer not to watch the video and are familiar with YAML, skip ahead. I'll
+also put a link at the end for a GitHub repository that contains setup information for your
+Raspberry Pi nodes.&lt;/p&gt;
+&lt;p&gt;Generally, the video above goes through setup from start-to-cluster-ready. The rest of this will
+focus on my personal experience with whatever tweaks/optimizations I made along the way.&lt;/p&gt;
+&lt;h2&gt;Hardware assembly&lt;/h2&gt;
+&lt;p&gt;I've managed to keep spares of lots of things, especially cables. When the time comes to use the
+things I've been stashing for years, I get excited -- then disappointed because it probably wasn't
+worth lugging around 3+ moves "just in case" I need it. True that I used a few spare things in
+storage, but the majority of the cost was still the Pis and case. Anyway, parts list below:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Netgear unmanaged switch&lt;/li&gt;
+&lt;li&gt;4x Raspberry Pi 4&lt;/li&gt;
+&lt;li&gt;CAT6 cables&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.amazon.com/gp/product/B07D7PDLXC/"&gt;3x SAMSUNG FIT Plus 3.1 USB Flash Drive&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.amazon.com/gp/product/B07D5MJ7PQ/"&gt;C4Labs Cluster Case for Raspberry Pi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.amazon.com/gp/product/B0BBFP95GD"&gt;3-pack short USB-C cables&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.amazon.com/gp/product/B00P933OJC"&gt;Anker 60W 6-Port USB Wall Charger&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;NOTE: This is potentially not enough to power all 3 Pis at full load.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Raspberry Pi setup&lt;/h2&gt;
+&lt;p&gt;Once all that was assembled, time to get thing dang things up and running. Below are some general
+instructions on what I did. The YouTube video above by NetworkChuck has a more detailed explanation
+of how to do everything. I will also have a link to a GitHub repo containing these instructions and
+some other helpful things I use to automate some minor tasks.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Use the
+   official &lt;a href="https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system"&gt;Raspberry Pi Imager&lt;/a&gt;,
+   or your preferred method, to get an operating system on your USB drives.&lt;/li&gt;
+&lt;li&gt;Create and update some files on the USB drives &lt;em&gt;before&lt;/em&gt; inserting and running on your Pis:&lt;ol&gt;
+&lt;li&gt;In the &lt;code&gt;[THE_USB_DRIVE]/boot&lt;/code&gt; directory create an empty file with the filename &lt;code&gt;ssh&lt;/code&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;touch [THE_USB_DRIVE]/boot/ssh&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;In &lt;code&gt;[THE_USB_DRIVE]/boot/config.txt&lt;/code&gt; add a line containing &lt;code&gt;arm_64bit=1&lt;/code&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;echo arm_64bit=1 &amp;gt;&amp;gt; [THE_USB_DRIVE]/boot/config.txt&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;(New to me) the official imager can now also set up SSH access. On the link above search
+   for "Enable SSH".&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;At this point you can put the drives in, connect your network cables, and get them running&lt;/li&gt;
+&lt;li&gt;Find your Pis on your network. Easiest way is to check your router's settings.&lt;/li&gt;
+&lt;li&gt;(On each Pi) &lt;code&gt;ssh pi@[YOUR_PI_IP]&lt;/code&gt;&lt;ul&gt;
+&lt;li&gt;NOTE: &lt;code&gt;pi&lt;/code&gt; is the default username and &lt;code&gt;raspberry&lt;/code&gt; is the default password.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Ensure every Pi is confirmed on the network and you now have the beginnings to a cluster!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;To be continued&lt;/h2&gt;
+&lt;p&gt;This has been getting long-ish to write, so I'll take a break here and get back to the remainder on
+the next post. If you don't see the GitHub link for the above yet, I'm working on it!&lt;/p&gt;</content><category term="projects"></category><category term="projects"></category><category term="kubernetes"></category><category term="hardware"></category><category term="linux"></category></entry><entry><title>The blog</title><link href="https://blog.aalmazan.com/posts/2023-11-the-blog.html" rel="alternate"></link><published>2023-11-12T00:00:00-08:00</published><updated>2023-11-12T00:00:00-08:00</updated><author><name>Allan Almazan</name></author><id>tag:blog.aalmazan.com,2023-11-12:/posts/2023-11-the-blog.html</id><summary type="html">&lt;p&gt;A more detailed look into more technical things about this blog.&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is a more detailed look into the bits and pieces that make up this blog. For a quick overview,
 take a look at the &lt;a href="https://blog.aalmazan.com/pages/about.html"&gt;about page&lt;/a&gt;.&lt;/p&gt;
 &lt;h3&gt;Failed beginnings&lt;/h3&gt;
 &lt;p&gt;As mentioned in the about page, this is the end-result of dreams of grandeur, at least from an
@@ -77,4 +159,4 @@ left to do is the more interesting parts:&lt;/p&gt;
 &lt;li&gt;Analytics? (Please don't hate me if I use Google Analytics)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;I suppose at this point something will be publicly online -- and that's the hardest part, even if
-there are a few (or more) warts and blemishes.&lt;/p&gt;</content><category term="blog"></category><category term="blog"></category><category term="programming"></category></entry></feed>
+there are a few (or more) warts and blemishes.&lt;/p&gt;</content><category term="blog"></category><category term="programming"></category></entry></feed>

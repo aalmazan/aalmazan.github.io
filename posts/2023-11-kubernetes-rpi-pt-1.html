@@ -1,0 +1,182 @@
+<!doctype html>
+<html class="no-js" lang="en" data-theme="dracula">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Getting more familiar with Kubernetes (and the Raspberry Pis to prove it) Part 1 |
+ Allan Almazan</title>
+  <link rel="stylesheet" href="https://blog.aalmazan.com/theme/css/styles.css">
+  <link rel="stylesheet" href="https://blog.aalmazan.com/theme/css/pygment.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="Allan Almazan"/>
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <!--  <link rel="icon" href="/favicon.ico" sizes="any">-->
+  <!--  <link rel="icon" href="/icon.svg" type="image/svg+xml">-->
+  <!--  <link rel="apple-touch-icon" href="icon.png">-->
+  <link href='https://fonts.googleapis.com/css?family=Gabarito|Roboto+Slab:500,400,300'
+        rel='stylesheet' type='text/css'>
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body class="dark:text-white">
+<div class="max-w-3xl px-4 mx-auto sm:px-6 xl:max-w-5xl xl:px-0">
+    <div class="flex flex-col justify-between h-screen mb-auto">
+<header class="pt-8 pb-10 flex flex-row items-center justify-between">
+  <h1 class="font-medium"><a href="https://blog.aalmazan.com/">Allan Almazan</a></h1>
+
+  <div class="flex text-base leading-5 items-center justify-between w-100 pl-10 space-x-3">
+    <a class="" href="https://blog.aalmazan.com/">Home</a>
+    <a class="" href="https://blog.aalmazan.com/pages/about.html">About</a>
+    <a class="" href="https://blog.aalmazan.com/archives">Archives</a>
+    <a class="" href="https://blog.aalmazan.com/categories">Categories</a>
+  </div>
+</header>
+      <div class="mb-auto flex flex-col">
+<div class="flex justify-center align-items-center pt-6">
+  <div class="flex flex-col justify-center text-center">
+    <h2 class="text-3xl mb-1">Getting more familiar with Kubernetes (and the Raspberry Pis to prove it) Part 1</h2>
+    <time class="mb-1" datetime="2023-11-15T00:00:00-08:00">
+      Nov 15, 2023
+    </time>
+    <!--    <a class="text-xs font-medium uppercase text-gray-400 hover:text-gray-100"-->
+    <div class="flex justify-center">
+      <a class="badge badge-outline badge-sm"
+         href="https://blog.aalmazan.com/category/projects.html">
+        projects
+      </a>
+    </div>
+  </div>
+</div>
+<div class="post">
+  <div class="flex pb-0 justify-center">
+    <article class="pt-4 pb-8 prose max-w-prose">
+      <p>I started this project over a year ago on a whim. At <code>$DAY_JOB</code> I had to interact with Kubernetes,
+but there were times when I felt uneasy doing <em>anything</em> with it.</p>
+<blockquote>
+<p>ME: So just run: <code>kubectl apply -f maybe-a-scary-production-deployment.yml</code> to update the staging
+server?</p>
+<p>THEM: Yeah, after that you're good to go.</p>
+<p>ME: But it says production in the filename.</p>
+<p>THEM: Yeah, it's fine. You should have some settings that point you to the staging cluster. It's
+fine.</p>
+<p>ME: Hmmm.</p>
+</blockquote>
+<p>I've spent over 10 years working across the stack in terms of building
+sites/applications/infrastructure, but when it came to Kubernetes, it always felt like a mystical
+force that granted you <em>Zero-Downtime</em>. It was time for that to change.</p>
+<h2>The beginning</h2>
+<p>I tried <a href="https://kubernetes.io/docs/tutorials/">Kubernetes tutorials</a>, official and otherwise. The
+terms make sense. I just needed more practical usage. I was also experimenting with (micro) services
+architecture, so my eyes opened wide when I saw this Udemy course on
+sale: <a href="https://www.udemy.com/share/102VKE3@NvvIV6zas3ZRCkOZ-CK1CvlzrQbw3VaIn_MMF81SNtGH5RrXe8g4Lhcs2yt1e3x2qw==/">Microservices with Node JS and React</a>.
+I purchased the course (July 2022) when it was $20, and at the time of writing, it's now at a
+whopping $130. For the amount of content the course has, it's definitely worth $20 -- unsure if I'd
+pay $130 if you already have general full stack knowledge of web applications.</p>
+<p>After going through bits of the course, I quickly found out that running Kubernetes locally is kind
+of annoying and took up lots of resources. I didn't want to deal with creating and managing an
+AWS/GCP/etc. account, but surely I can build my own without having to build a $1,000+ server.</p>
+<p>Thankfully, I ran into this YouTube video (the YouTube algorithm knows too
+much): "<a href="https://www.youtube.com/watch?v=X9fSMGkjtug">i built a Raspberry Pi SUPER COMPUTER!!</a>".
+Very useful video (IMO) for getting started, but apologies in advance if this type of content is
+not for you. If you'd prefer not to watch the video and are familiar with YAML, skip ahead. I'll
+also put a link at the end for a GitHub repository that contains setup information for your
+Raspberry Pi nodes.</p>
+<p>Generally, the video above goes through setup from start-to-cluster-ready. The rest of this will
+focus on my personal experience with whatever tweaks/optimizations I made along the way.</p>
+<h2>Hardware assembly</h2>
+<p>I've managed to keep spares of lots of things, especially cables. When the time comes to use the
+things I've been stashing for years, I get excited -- then disappointed because it probably wasn't
+worth lugging around 3+ moves "just in case" I need it. True that I used a few spare things in
+storage, but the majority of the cost was still the Pis and case. Anyway, parts list below:</p>
+<ul>
+<li>Netgear unmanaged switch</li>
+<li>4x Raspberry Pi 4</li>
+<li>CAT6 cables</li>
+<li><a href="https://www.amazon.com/gp/product/B07D7PDLXC/">3x SAMSUNG FIT Plus 3.1 USB Flash Drive</a></li>
+<li><a href="https://www.amazon.com/gp/product/B07D5MJ7PQ/">C4Labs Cluster Case for Raspberry Pi</a></li>
+<li><a href="https://www.amazon.com/gp/product/B0BBFP95GD">3-pack short USB-C cables</a></li>
+<li><a href="https://www.amazon.com/gp/product/B00P933OJC">Anker 60W 6-Port USB Wall Charger</a><ul>
+<li>NOTE: This is potentially not enough to power all 3 Pis at full load.</li>
+</ul>
+</li>
+</ul>
+<h2>Raspberry Pi setup</h2>
+<p>Once all that was assembled, time to get thing dang things up and running. Below are some general
+instructions on what I did. The YouTube video above by NetworkChuck has a more detailed explanation
+of how to do everything. I will also have a link to a GitHub repo containing these instructions and
+some other helpful things I use to automate some minor tasks.</p>
+<ol>
+<li>Use the
+   official <a href="https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system">Raspberry Pi Imager</a>,
+   or your preferred method, to get an operating system on your USB drives.</li>
+<li>Create and update some files on the USB drives <em>before</em> inserting and running on your Pis:<ol>
+<li>In the <code>[THE_USB_DRIVE]/boot</code> directory create an empty file with the filename <code>ssh</code>:<ul>
+<li><code>touch [THE_USB_DRIVE]/boot/ssh</code></li>
+</ul>
+</li>
+<li>In <code>[THE_USB_DRIVE]/boot/config.txt</code> add a line containing <code>arm_64bit=1</code>:<ul>
+<li><code>echo arm_64bit=1 &gt;&gt; [THE_USB_DRIVE]/boot/config.txt</code></li>
+</ul>
+</li>
+<li>(New to me) the official imager can now also set up SSH access. On the link above search
+   for "Enable SSH".</li>
+</ol>
+</li>
+<li>At this point you can put the drives in, connect your network cables, and get them running</li>
+<li>Find your Pis on your network. Easiest way is to check your router's settings.</li>
+<li>(On each Pi) <code>ssh pi@[YOUR_PI_IP]</code><ul>
+<li>NOTE: <code>pi</code> is the default username and <code>raspberry</code> is the default password.</li>
+</ul>
+</li>
+<li>Ensure every Pi is confirmed on the network and you now have the beginnings to a cluster!</li>
+</ol>
+<h2>To be continued</h2>
+<p>This has been getting long-ish to write, so I'll take a break here and get back to the remainder on
+the next post. If you don't see the GitHub link for the above yet, I'm working on it!</p>
+    </article>
+  </div>
+</div>
+      </div>
+
+<footer class="mt-auto pb-2 flex flex-col">
+<p class="prose mx-auto"
+   xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+  <a
+      property="dct:title" rel="cc:attributionURL"
+      href="https://blog.aalmazan.com">
+    blog.aalmazan.com
+  </a> by
+  <a
+      rel="cc:attributionURL dct:creator"
+      property="cc:attributionName"
+      href="https://github.com/aalmazan/">
+    Allan Almazan
+  </a> is licensed under
+  <a
+      class="inline-block"
+      href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1"
+      target="_blank"
+      rel="license noopener noreferrer"
+  >
+    CC BY 4.0
+    <img class="not-prose h-5 w-5 p-0 inline-block"
+         src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"/>
+    <img class="not-prose h-5 w-5 p-0 inline-block"
+         src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"/>
+  </a>
+</p></footer>    </div>
+
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "0afb0dc2306f493f8929d7ca21aa69d0"}'></script>
+<!-- End Cloudflare Web Analytics --></div>
+</body>
+
+</html>
