@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Tags |
+{% endblock title %}
+
+{#{% set content_title = article.title|striptags %}#}
+
+{% block content %}
+  <h2>Tags for {{ SITENAME }}</h2>
+  <ul>
+    {% for tag, articles in tags|sort %}
+      <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> ({{ articles|count }})</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

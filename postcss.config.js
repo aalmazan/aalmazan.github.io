@@ -9,6 +9,7 @@ module.exports = {
     purgecss({
       content: [
         './themes/aalmazan/**/*.html',
+        './themes/aalmazan/**/*.j2',
         './content/**/*.md',
         './output/**/*.html',
       ]
