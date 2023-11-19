@@ -23,12 +23,18 @@ ARTICLE_SAVE_AS = "posts/{date:%Y}-{date:%m}-{slug}.html"
 
 # Top nav menu items
 MENUITEMS = (
-  ("Archives", "/archives.html"),
-  ("Categories", "/categories.html"),
-  ("Tags", "/tags.html"),
+    ("Archives", "/archives.html"),
+    ("Categories", "/categories.html"),
+    ("Tags", "/tags.html"),
 )
 
 DEFAULT_PAGINATION = 10
+
+STATIC_PATHS = ["static/robots.txt"]
+
+EXTRA_PATH_METADATA = {
+    "static/robots.txt": {"path": "robots.txt"},
+}
 
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
