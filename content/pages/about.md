@@ -1,6 +1,7 @@
 Title: About
 Date: 2023-11-13
 Slug: about
+Description: About me and the site.
 
 ### Me
 

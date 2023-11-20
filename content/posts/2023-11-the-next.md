@@ -4,6 +4,7 @@ Category: projects
 Status: published
 Tags: projects, kubernetes, hardware, linux
 Slug: kubernetes-rpi-pt-1
+Description: I made a Kubernetes cluster with a few Raspberry Pis. Was it worth it?
 Summary: I made a Kubernetes cluster with a few Raspberry Pis. Was it worth it?
 
 I started this project over a year ago on a whim. At `$DAY_JOB` I had to interact with Kubernetes,
