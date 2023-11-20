@@ -1,60 +1,53 @@
-<!doctype html>
-<html class="no-js" lang="en" data-theme="dracula">
+<!DOCTYPE html>
 
+<html class="no-js" data-theme="dracula" lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Getting more familiar with Kubernetes (and the Raspberry Pis to prove it) Part 1 |
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Getting more familiar with Kubernetes (and the Raspberry Pis to prove it) Part 1 |
  Allan Almazan</title>
-  <link rel="stylesheet" href="https://blog.aalmazan.com/theme/css/styles.css">
-  <link rel="stylesheet" href="https://blog.aalmazan.com/theme/css/pygment.css">
-  <meta name="description" content="">
-
-  <meta property="og:title" content="Allan Almazan"/>
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-
-  <link href='https://fonts.googleapis.com/css?family=Gabarito|Roboto+Slab:500,400,300'
-        rel='stylesheet' type='text/css'>
-
-  <meta name="theme-color" content="#fafafa">
-  <meta name="google-site-verification" content="VczqzsxwsqxPjqIp5M_vX8c9hqCr2zTp18UQAEplyV4" />
-</head>
-
+<link href="https://blog.aalmazan.com/theme/css/styles.css" rel="stylesheet"/>
+<link href="https://blog.aalmazan.com/theme/css/pygment.css" rel="stylesheet"/>
+<meta content="" name="description"/>
+<meta content="Allan Almazan" property="og:title">
+<meta content="" property="og:type"/>
+<meta content="" property="og:url"/>
+<meta content="" property="og:image"/>
+<link href="https://fonts.googleapis.com/css?family=Gabarito|Roboto+Slab:500,400,300" rel="stylesheet" type="text/css"/>
+<meta content="#fafafa" name="theme-color"/>
+<meta content="VczqzsxwsqxPjqIp5M_vX8c9hqCr2zTp18UQAEplyV4" name="google-site-verification">
+</meta></meta><link href="https://blog.aalmazan.com/posts/2023-11-kubernetes-rpi-pt-1.html" rel="canonical"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Allan Almazan", "item": "https://blog.aalmazan.com"}, {"@type": "ListItem", "position": 2, "name": "Posts", "item": "https://blog.aalmazan.com/posts"}, {"@type": "ListItem", "position": 3, "name": "2023 11 kubernetes rpi pt 1", "item": "https://blog.aalmazan.com/posts/2023-11-kubernetes-rpi-pt-1.html"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "author": {"@type": "Person", "name": "Allan Almazan"}, "publisher": {"@type": "Organization", "name": "Allan Almazan"}, "headline": "Getting more familiar with Kubernetes (and the Raspberry Pis to prove it) Part 1", "about": "projects", "datePublished": "2023-11-15 00:00"}</script></head>
 <body class="dark:text-white">
 <div class="max-w-3xl px-4 mx-auto sm:px-6 xl:max-w-5xl xl:px-0">
-    <div class="flex flex-col justify-between h-screen mb-auto">
+<div class="flex flex-col justify-between h-screen mb-auto">
 <header class="pt-8 pb-10 flex flex-row items-center justify-between">
-  <h1 class="font-medium"><a href="https://blog.aalmazan.com/">Allan Almazan</a></h1>
-
-  <div class="flex text-base leading-5 items-center justify-between w-100 pl-10 space-x-3">
-    <a class="" href="https://blog.aalmazan.com/">Home</a>
-    <a class="" href="https://blog.aalmazan.com/pages/about.html">About</a>
-    <a class="" href="https://blog.aalmazan.com/archives">Archives</a>
-    <a class="" href="https://blog.aalmazan.com/categories">Categories</a>
-  </div>
+<h1 class="font-medium"><a href="https://blog.aalmazan.com/">Allan Almazan</a></h1>
+<div class="flex text-base leading-5 items-center justify-between w-100 pl-10 space-x-3">
+<a class="" href="https://blog.aalmazan.com/">Home</a>
+<a class="" href="https://blog.aalmazan.com/pages/about.html">About</a>
+<a class="" href="https://blog.aalmazan.com/archives">Archives</a>
+<a class="" href="https://blog.aalmazan.com/categories">Categories</a>
+</div>
 </header>
-      <div class="content mb-auto flex flex-col">
+<div class="content mb-auto flex flex-col">
 <div class="flex justify-center align-items-center pt-6">
-  <div class="flex flex-col justify-center text-center">
-    <h2 class="text-3xl mb-1">Getting more familiar with Kubernetes (and the Raspberry Pis to prove it) Part 1</h2>
-    <time class="mb-1" datetime="2023-11-15T00:00:00-08:00">
+<div class="flex flex-col justify-center text-center">
+<h2 class="text-3xl mb-1">Getting more familiar with Kubernetes (and the Raspberry Pis to prove it) Part 1</h2>
+<time class="mb-1" datetime="2023-11-15T00:00:00-08:00">
       Nov 15, 2023
     </time>
-    <!--    <a class="text-xs font-medium uppercase text-gray-400 hover:text-gray-100"-->
-    <div class="flex justify-center">
-      <a class="badge badge-outline badge-sm"
-         href="https://blog.aalmazan.com/category/projects.html">
+<!--    <a class="text-xs font-medium uppercase text-gray-400 hover:text-gray-100"-->
+<div class="flex justify-center">
+<a class="badge badge-outline badge-sm" href="https://blog.aalmazan.com/category/projects.html">
         projects
       </a>
-    </div>
-  </div>
+</div>
+</div>
 </div>
 <div class="post">
-  <div class="flex pb-0 justify-center">
-    <article class="pt-4 pb-8 prose max-w-prose">
-      <p>I started this project over a year ago on a whim. At <code>$DAY_JOB</code> I had to interact with Kubernetes,
+<div class="flex pb-0 justify-center">
+<article class="pt-4 pb-8 prose max-w-prose">
+<p>I started this project over a year ago on a whim. At <code>$DAY_JOB</code> I had to interact with Kubernetes,
 but there were times when I felt uneasy doing <em>anything</em> with it.</p>
 <blockquote>
 <p>ME: So just run: <code>kubectl apply -f maybe-a-scary-production-deployment.yml</code> to update the staging
@@ -105,10 +98,9 @@ storage, but the majority of the cost was still the Pis and case. Anyway, parts 
 </li>
 </ul>
 <div class="flex flex-col justify-center text-center">
-    <img class="m-0" alt="Raspberry Pi cluster" src="../images/pi-cluster-side.jpg" />
-    <small>Final result with terrible cable management</small>
+<img alt="Raspberry Pi cluster" class="m-0" src="../images/pi-cluster-side.jpg"/>
+<small>Final result with terrible cable management</small>
 </div>
-
 <h2>Raspberry Pi setup</h2>
 <p>Once all that was assembled, time to get thing dang things up and running. Below are some general
 instructions on what I did. The YouTube video above by NetworkChuck has a more detailed explanation
@@ -142,43 +134,26 @@ some other helpful things I use to automate some minor tasks.</p>
 <h2>To be continued</h2>
 <p>This has been getting long-ish to write, so I'll take a break here and get back to the remainder on
 the next post. If you don't see the GitHub link for the above yet, I'm working on it!</p>
-    </article>
-  </div>
+</article>
 </div>
-      </div>
-
+</div>
+</div>
 <footer class="mt-auto pb-2 flex flex-col">
-<p class="prose mx-auto"
-   xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
-  <a
-      property="dct:title" rel="cc:attributionURL"
-      href="https://blog.aalmazan.com">
+<p class="prose mx-auto" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+<a href="https://blog.aalmazan.com" property="dct:title" rel="cc:attributionURL">
     blog.aalmazan.com
   </a> by
-  <a
-      rel="cc:attributionURL dct:creator"
-      property="cc:attributionName"
-      href="https://github.com/aalmazan/">
+  <a href="https://github.com/aalmazan/" property="cc:attributionName" rel="cc:attributionURL dct:creator">
     Allan Almazan
   </a> is licensed under
-  <a
-      class="inline-block"
-      href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1"
-      target="_blank"
-      rel="license noopener noreferrer"
-  >
+  <a class="inline-block" href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" rel="license noopener noreferrer" target="_blank">
     CC BY 4.0
-    <img class="not-prose h-5 w-5 p-0 inline-block"
-         src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"/>
-    <img class="not-prose h-5 w-5 p-0 inline-block"
-         src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"/>
-  </a>
-</p></footer>    </div>
-
+    <img class="not-prose h-5 w-5 p-0 inline-block" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"/>
+<img class="not-prose h-5 w-5 p-0 inline-block" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"/>
+</a>
+</p></footer> </div>
 <!-- Cloudflare Web Analytics -->
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
-        data-cf-beacon='{"token": "0afb0dc2306f493f8929d7ca21aa69d0"}'></script>
+<script data-cf-beacon='{"token": "0afb0dc2306f493f8929d7ca21aa69d0"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script>
 <!-- End Cloudflare Web Analytics --></div>
 </body>
-
 </html>
