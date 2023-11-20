@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Allan Almazan - blog</title><link href="https://blog.aalmazan.com/" rel="alternate"></link><link href="https://blog.aalmazan.com/feeds/blog.atom.xml" rel="self"></link><id>https://blog.aalmazan.com/</id><updated>2023-11-12T00:00:00-08:00</updated><subtitle>A personal blog</subtitle><entry><title>The blog</title><link href="https://blog.aalmazan.com/posts/2023-11-the-blog.html" rel="alternate"></link><published>2023-11-12T00:00:00-08:00</published><updated>2023-11-12T00:00:00-08:00</updated><author><name>Allan Almazan</name></author><id>tag:blog.aalmazan.com,2023-11-12:/posts/2023-11-the-blog.html</id><summary type="html">&lt;p&gt;A more detailed look into more technical things about this blog.&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is a more detailed look into the bits and pieces that make up this blog. For a quick overview,
 take a look at the &lt;a href="https://blog.aalmazan.com/pages/about.html"&gt;about page&lt;/a&gt;.&lt;/p&gt;
-&lt;h3&gt;Failed beginnings&lt;/h3&gt;
+&lt;h3 id="failed-beginnings"&gt;Failed beginnings&lt;/h3&gt;
 &lt;p&gt;As mentioned in the about page, this is the end-result of dreams of grandeur, at least from an
 engineering perspective. This was always meant to be on some type of static site generator, but
 why &lt;a href="https://getpelican.com/"&gt;Pelican&lt;/a&gt;?&lt;/p&gt;
@@ -68,7 +68,7 @@ to get started on the frontend build side of things. In short:&lt;/p&gt;
 &lt;/svg&gt;
 &lt;/div&gt;
 
-&lt;h3&gt;What next?&lt;/h3&gt;
+&lt;h3 id="what-next"&gt;What next?&lt;/h3&gt;
 &lt;p&gt;Blog seems to be done now with frontend processing and static site generator templates. All that's
 left to do is the more interesting parts:&lt;/p&gt;
 &lt;ul&gt;

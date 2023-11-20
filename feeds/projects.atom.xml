@@ -13,7 +13,7 @@ fine.&lt;/p&gt;
 &lt;p&gt;I've spent over 10 years working across the stack in terms of building
 sites/applications/infrastructure, but when it came to Kubernetes, it always felt like a mystical
 force that granted you &lt;em&gt;Zero-Downtime&lt;/em&gt;. It was time for that to change.&lt;/p&gt;
-&lt;h2&gt;The beginning&lt;/h2&gt;
+&lt;h2 id="the-beginning"&gt;The beginning&lt;/h2&gt;
 &lt;p&gt;I tried &lt;a href="https://kubernetes.io/docs/tutorials/"&gt;Kubernetes tutorials&lt;/a&gt;, official and otherwise. The
 terms make sense. I just needed more practical usage. I was also experimenting with (micro) services
 architecture, so my eyes opened wide when I saw this Udemy course on
@@ -32,7 +32,7 @@ also put a link at the end for a GitHub repository that contains setup informati
 Raspberry Pi nodes.&lt;/p&gt;
 &lt;p&gt;Generally, the video above goes through setup from start-to-cluster-ready. The rest of this will
 focus on my personal experience with whatever tweaks/optimizations I made along the way.&lt;/p&gt;
-&lt;h2&gt;Hardware assembly&lt;/h2&gt;
+&lt;h2 id="hardware-assembly"&gt;Hardware assembly&lt;/h2&gt;
 &lt;p&gt;I've managed to keep spares of lots of things, especially cables. When the time comes to use the
 things I've been stashing for years, I get excited -- then disappointed because it probably wasn't
 worth lugging around 3+ moves "just in case" I need it. True that I used a few spare things in
@@ -54,7 +54,7 @@ storage, but the majority of the cost was still the Pis and case. Anyway, parts 
     &lt;small&gt;Final result with terrible cable management&lt;/small&gt;
 &lt;/div&gt;
 
-&lt;h2&gt;Raspberry Pi setup&lt;/h2&gt;
+&lt;h2 id="raspberry-pi-setup"&gt;Raspberry Pi setup&lt;/h2&gt;
 &lt;p&gt;Once all that was assembled, time to get thing dang things up and running. Below are some general
 instructions on what I did. The YouTube video above by NetworkChuck has a more detailed explanation
 of how to do everything. I will also have a link to a GitHub repo containing these instructions and
@@ -84,6 +84,6 @@ some other helpful things I use to automate some minor tasks.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;Ensure every Pi is confirmed on the network and you now have the beginnings to a cluster!&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2&gt;To be continued&lt;/h2&gt;
+&lt;h2 id="to-be-continued"&gt;To be continued&lt;/h2&gt;
 &lt;p&gt;This has been getting long-ish to write, so I'll take a break here and get back to the remainder on
 the next post. If you don't see the GitHub link for the above yet, I'm working on it!&lt;/p&gt;</content><category term="projects"></category><category term="projects"></category><category term="kubernetes"></category><category term="hardware"></category><category term="linux"></category></entry></feed>
