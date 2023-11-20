@@ -14,14 +14,15 @@
   <meta property="og:url" content="">
   <meta property="og:image" content="">
 
-  <!--  <link rel="icon" href="/favicon.ico" sizes="any">-->
-  <!--  <link rel="icon" href="/icon.svg" type="image/svg+xml">-->
-  <!--  <link rel="apple-touch-icon" href="icon.png">-->
+  {#  <link rel="icon" href="/favicon.ico" sizes="any">#}
+  {#  <link rel="icon" href="/icon.svg" type="image/svg+xml">#}
+  {#  <link rel="apple-touch-icon" href="icon.png">#}
   <link href='https://fonts.googleapis.com/css?family=Gabarito|Roboto+Slab:500,400,300'
         rel='stylesheet' type='text/css'>
 
-  <link rel="manifest" href="site.webmanifest">
+  {#  <link rel="manifest" href="site.webmanifest">#}
   <meta name="theme-color" content="#fafafa">
+  <meta name="google-site-verification" content="{{ GOOGLE_SITE_VERIFICATION }}" />
 </head>
 
 <body class="dark:text-white">
@@ -30,7 +31,7 @@
     <div class="flex flex-col justify-between h-screen mb-auto">
       {% include "header.j2" %}
 
-      <div class="mb-auto flex flex-col">
+      <div class="content mb-auto flex flex-col">
         {% block content_title %}
           <div class="flex justify-center pt-6">
             <div class="">

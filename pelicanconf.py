@@ -30,5 +30,28 @@ MENUITEMS = (
 
 DEFAULT_PAGINATION = 10
 
+STATIC_PATHS = ["extra"]
+
+EXTRA_PATH_METADATA = {
+  "extra/robots.txt": {"path": "robots.txt"},
+}
+
+GOOGLE_SITE_VERIFICATION = "VczqzsxwsqxPjqIp5M_vX8c9hqCr2zTp18UQAEplyV4"
+
+SEO_REPORT = True  # SEO report is enabled by default
+SEO_ENHANCER = False  # SEO enhancer is disabled by default
+SEO_ENHANCER_OPEN_GRAPH = False  # Subfeature of SEO enhancer
+SEO_ENHANCER_TWITTER_CARDS = False  # Subfeature of SEO enhancer
+
+MARKDOWN = {
+  'extension_configs': {
+    'markdown.extensions.codehilite': {'css_class': 'highlight'},
+    'markdown.extensions.extra': {},
+    'markdown.extensions.meta': {},
+    'markdown.extensions.toc': {},
+  },
+  'output_format': 'html5',
+}
+
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True

@@ -3,33 +3,36 @@
 {% set content_title = "Archives" %}
 
 {% block title %}
-Archives |
+  Archives |
 {% endblock %}
 
 {% block content %}
-<div class="flex justify-center">
-  {% for article in dates %}
-  <article class="py-4">
-    <time class="text-gray-400" datetime="{{ article.date.isoformat() }}">
-      {{ article.date.strftime('%b %d, %Y') }}
-    </time>
+  <div class="flex justify-center">
+    <div>
+      {% for article in dates %}
+        <article class="py-4">
+          <time class="text-gray-400" datetime="{{ article.date.isoformat() }}">
+            {{ article.date.strftime('%b %d, %Y') }}
+          </time>
 
-    <div class="">
-      <h2 class="text-xl font-medium leading-8 tracking-tight hover:underline">
-        <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
-      </h2>
-      <div class="">
-        {% for tag in article.tags %}
-        <a class="mr-3 text-xs font-medium uppercase text-gray-400 hover:text-gray-600 dark:hover:text-gray-100"
-           href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
-        {% endfor %}
-      </div>
-      <div class="mt-4 prose">{{ article.summary }}</div>
-      <div class="">
-        <a class="btn btn-link pl-0 text-xs hover:no-underline" href="{{ SITEURL }}/{{ article.url }}">Read</a>
-      </div>
+          <div class="">
+            <h2 class="text-xl font-medium leading-8 tracking-tight hover:underline">
+              <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+            </h2>
+            <div class="">
+              {% for tag in article.tags %}
+                <a class="mr-3 text-xs font-medium uppercase text-gray-400 hover:text-gray-600 dark:hover:text-gray-100"
+                   href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+              {% endfor %}
+            </div>
+            <div class="mt-4 prose">{{ article.summary }}</div>
+            <div class="">
+              <a class="btn btn-link pl-0 text-xs hover:no-underline"
+                 href="{{ SITEURL }}/{{ article.url }}">Read</a>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
     </div>
-  </article>
-  {% endfor %}
-</div>
+  </div>
 {% endblock content %}
