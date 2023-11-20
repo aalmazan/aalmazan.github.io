@@ -97,4 +97,5 @@ some other helpful things I use to automate some minor tasks.
 ## To be continued
 
 This has been getting long-ish to write, so I'll take a break here and get back to the remainder on
-the next post. If you don't see the GitHub link for the above yet, I'm working on it!
+the next post. For more instructions and an Ansible playbook to get started take a look at my
+[rpi-ops](https://github.com/aalmazan/rpi-ops) GitHub repository.
