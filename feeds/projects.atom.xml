@@ -86,4 +86,5 @@ some other helpful things I use to automate some minor tasks.&lt;/p&gt;
 &lt;/ol&gt;
 &lt;h2 id="to-be-continued"&gt;To be continued&lt;/h2&gt;
 &lt;p&gt;This has been getting long-ish to write, so I'll take a break here and get back to the remainder on
-the next post. If you don't see the GitHub link for the above yet, I'm working on it!&lt;/p&gt;</content><category term="projects"></category><category term="projects"></category><category term="kubernetes"></category><category term="hardware"></category><category term="linux"></category></entry></feed>
+the next post. For more instructions and an Ansible playbook to get started take a look at my
+&lt;a href="https://github.com/aalmazan/rpi-ops"&gt;rpi-ops&lt;/a&gt; GitHub repository.&lt;/p&gt;</content><category term="projects"></category><category term="projects"></category><category term="kubernetes"></category><category term="hardware"></category><category term="linux"></category></entry></feed>
