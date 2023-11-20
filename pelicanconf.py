@@ -1,6 +1,7 @@
 AUTHOR = "Allan Almazan"
 SITENAME = "Allan Almazan"
 SITESUBTITLE = "A personal blog"
+SITEURL = "http://localhost:8000"
 
 PATH = "content"
 

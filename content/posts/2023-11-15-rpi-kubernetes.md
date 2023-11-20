@@ -1,5 +1,6 @@
 Title: Getting more familiar with Kubernetes (and the Raspberry Pis to prove it) Part 1
 Date: 2023-11-15
+Modified: 2023-11-19
 Category: projects
 Status: published
 Tags: projects, kubernetes, hardware, linux
