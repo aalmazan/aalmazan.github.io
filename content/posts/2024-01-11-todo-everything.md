@@ -1,7 +1,7 @@
 Title: TODO: Everything
 Date: 2024-01-11
 Modified: 2024-01-11
-Status: draft
+Status: published
 Category: projects
 Tags: todo-everything, programming
 Slug: todo-everything-begins
