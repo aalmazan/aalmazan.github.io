@@ -39,17 +39,17 @@ infinity of features left to go.
 
 * Backend written in Python + Django. Mainly using Django for its ORM
   and [`django-rest-framework`](https://www.django-rest-framework.org/)
-    * https://github.com/todo-everything/todo-everything-django
+    * [https://github.com/todo-everything/todo-everything-django](https://github.com/todo-everything/todo-everything-django)
 * A frontend written in TypeScript using [SolidJS](https://www.solidjs.com/) and [Vite](https://vitejs.dev/) (
   the `solid-ts` vite template). This was written first to get a feel for
   the API. Probably should be written later, but that's a story for a different post.
-    * https://github.com/todo-everything/todo-everything-solid
+    * [https://github.com/todo-everything/todo-everything-solid](https://github.com/todo-everything/todo-everything-solid)
 * Another frontend written TypeScript using [React](https://react.dev/), [SWC](https://swc.rs/) and
   also [Vite](https://vitejs.dev/) (`react-swc-ts` template).
-    * https://github.com/todo-everything/todo-everything-react
+    * [https://github.com/todo-everything/todo-everything-react](https://github.com/todo-everything/todo-everything-react)
 * Everything OPs related. So far just some Ansible and Kubernetes files, but it also supports ARM because of Raspberry
   Pis.
-    * https://github.com/todo-everything/todo-everything-ops
+    * [https://github.com/todo-everything/todo-everything-ops](https://github.com/todo-everything/todo-everything-ops)
 
 I've learned more in the past few months than I have even in some other jobs since it's completely void of any
 "business" and "logic". At least for now. Hah, but no this will almost never be a viable business idea. I do have a
