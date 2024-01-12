@@ -1,5 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Allan Almazan</title><link href="https://blog.aalmazan.com/" rel="alternate"></link><link href="https://blog.aalmazan.com/feeds/all.atom.xml" rel="self"></link><id>https://blog.aalmazan.com/</id><updated>2023-11-19T00:00:00-08:00</updated><subtitle>A personal blog</subtitle><entry><title>Getting more familiar with Kubernetes (and the Raspberry Pis to prove it) Part 1</title><link href="https://blog.aalmazan.com/posts/2023-11-kubernetes-rpi-pt-1.html" rel="alternate"></link><published>2023-11-15T00:00:00-08:00</published><updated>2023-11-19T00:00:00-08:00</updated><author><name>Allan Almazan</name></author><id>tag:blog.aalmazan.com,2023-11-15:/posts/2023-11-kubernetes-rpi-pt-1.html</id><summary type="html">&lt;p&gt;I made a Kubernetes cluster with a few Raspberry Pis. Was it worth it?&lt;/p&gt;</summary><content type="html">&lt;p&gt;I started this project over a year ago on a whim. At &lt;code&gt;$DAY_JOB&lt;/code&gt; I had to interact with Kubernetes,
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Allan Almazan</title><link href="https://blog.aalmazan.com/" rel="alternate"></link><link href="https://blog.aalmazan.com/feeds/all.atom.xml" rel="self"></link><id>https://blog.aalmazan.com/</id><updated>2024-01-11T00:00:00-08:00</updated><subtitle>A personal blog</subtitle><entry><title>TODO: Everything</title><link href="https://blog.aalmazan.com/posts/2024-01-todo-everything-begins.html" rel="alternate"></link><published>2024-01-11T00:00:00-08:00</published><updated>2024-01-11T00:00:00-08:00</updated><author><name>Allan Almazan</name></author><id>tag:blog.aalmazan.com,2024-01-11:/posts/2024-01-todo-everything-begins.html</id><summary type="html">&lt;p&gt;What the TODO: Everything project is and why.&lt;/p&gt;</summary><content type="html">&lt;p&gt;New year, more personal projects to procrastinate on.&lt;/p&gt;
+&lt;p&gt;A few years ago I thought an idea called "TODO Everything" which can be summed up as "The TODO app that does
+everything." I had ideas of grandeur where it would have every feature imaginable; integrate a bunch of different
+services; &lt;em&gt;be&lt;/em&gt; a bunch of different services; have complex backend systems that would do anything you need. It's an
+insane idea, and I always loved thinking
+about it. Essentially, it's something like a "Scope Creep Simulator", or maybe the absolute opposite of
+what &lt;a href="https://en.wikipedia.org/wiki/Code_golf"&gt;code golf&lt;/a&gt; is.&lt;/p&gt;
+&lt;p&gt;The purpose of Todo apps is pretty simple: people need toy/example/test apps to build, especially when learning a new
+language/framework/platform/etcetera. In the web app world there's a few that come to mind: blogs, social media clones,
+and Todo apps. Essentially, they're just &lt;a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete"&gt;CRUD&lt;/a&gt; apps with
+a database (or some type of data storage) that can maybe have multiple users and maybe a few actions can be done (i.e.
+completing a Todo item, or liking a post). That's it.&lt;/p&gt;
+&lt;p&gt;Of course, you'd want the scope to be minimal since you're just learning your shiny new language or tool, but it can get
+exponentially more interesting when you silence your inner &lt;em&gt;Project Manager/Lead Developer&lt;/em&gt; and tell yourself, "You know
+what? We &lt;em&gt;can&lt;/em&gt; add a few more weeks to this feature in order to get it working on a local Kubernetes cluster running on
+your Raspberry Pis."&lt;/p&gt;
+&lt;p&gt;So, a month or so ago that's what I did. I've engineered myself into corners and bulldozed those walls to create even
+more corners, but it has been interesting and mostly fun to work on. Will this be a major start up that will change
+people's lives for the better and solve global healthcare? No. 99.999% guaranteed to do nothing, but some learning's
+getting done, maybe it'll help other people as well.&lt;/p&gt;
+&lt;p&gt;I've created the GitHub organization &lt;a href="https://github.com/todo-everything"&gt;todo-everything&lt;/a&gt; that will house everything
+"TODO: Everything" (actual "real" name not confirmed). So far the following are up in mostly working condition with an
+infinity of features left to go.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Backend written in Python + Django. Mainly using Django for its ORM
+  and &lt;a href="https://www.django-rest-framework.org/"&gt;&lt;code&gt;django-rest-framework&lt;/code&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/todo-everything/todo-everything-django"&gt;https://github.com/todo-everything/todo-everything-django&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;A frontend written in TypeScript using &lt;a href="https://www.solidjs.com/"&gt;SolidJS&lt;/a&gt; and &lt;a href="https://vitejs.dev/"&gt;Vite&lt;/a&gt; (
+  the &lt;code&gt;solid-ts&lt;/code&gt; vite template). This was written first to get a feel for
+  the API. Probably should be written later, but that's a story for a different post.&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/todo-everything/todo-everything-solid"&gt;https://github.com/todo-everything/todo-everything-solid&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Another frontend written TypeScript using &lt;a href="https://react.dev/"&gt;React&lt;/a&gt;, &lt;a href="https://swc.rs/"&gt;SWC&lt;/a&gt; and
+  also &lt;a href="https://vitejs.dev/"&gt;Vite&lt;/a&gt; (&lt;code&gt;react-swc-ts&lt;/code&gt; template).&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/todo-everything/todo-everything-react"&gt;https://github.com/todo-everything/todo-everything-react&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Everything OPs related. So far just some Ansible and Kubernetes files, but it also supports ARM because of Raspberry
+  Pis.&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/todo-everything/todo-everything-ops"&gt;https://github.com/todo-everything/todo-everything-ops&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I've learned more in the past few months than I have even in some other jobs since it's completely void of any
+"business" and "logic". At least for now. Hah, but no this will almost never be a viable business idea. I do have a
+feature idea for &lt;code&gt;todo-everything&lt;/code&gt;, though, that would integrate Stripe (initially) charge a user a metered rate for
+each Todo item the create and complete. Another very wild idea, but I think I've actually seen a variant of that on an
+existing iOS Todo app... Future post ideas are abundant, but that's the end of this one for now.&lt;/p&gt;
+&lt;p&gt;Dreaming big and making my backlog infinite when time is very much limited. This is 2024.&lt;/p&gt;</content><category term="projects"></category><category term="todo-everything"></category><category term="programming"></category></entry><entry><title>Getting more familiar with Kubernetes (and the Raspberry Pis to prove it) Part 1</title><link href="https://blog.aalmazan.com/posts/2023-11-kubernetes-rpi-pt-1.html" rel="alternate"></link><published>2023-11-15T00:00:00-08:00</published><updated>2023-11-19T00:00:00-08:00</updated><author><name>Allan Almazan</name></author><id>tag:blog.aalmazan.com,2023-11-15:/posts/2023-11-kubernetes-rpi-pt-1.html</id><summary type="html">&lt;p&gt;I made a Kubernetes cluster with a few Raspberry Pis. Was it worth it?&lt;/p&gt;</summary><content type="html">&lt;p&gt;I started this project over a year ago on a whim. At &lt;code&gt;$DAY_JOB&lt;/code&gt; I had to interact with Kubernetes,
 but there were times when I felt uneasy doing &lt;em&gt;anything&lt;/em&gt; with it.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;ME: So just run: &lt;code&gt;kubectl apply -f maybe-a-scary-production-deployment.yml&lt;/code&gt; to update the staging

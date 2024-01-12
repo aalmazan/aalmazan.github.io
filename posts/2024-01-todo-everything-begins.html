@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html class="no-js" data-theme="dracula" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>TODO: Everything |
+ Allan Almazan</title>
+<link href="https://blog.aalmazan.com/theme/css/styles.css" rel="stylesheet"/>
+<link href="https://blog.aalmazan.com/theme/css/pygment.css" rel="stylesheet"/>
+<meta content="" name="description"/>
+<meta content="Allan Almazan" property="og:title">
+<meta content="" property="og:type"/>
+<meta content="" property="og:url"/>
+<meta content="" property="og:image"/>
+<link href="https://fonts.googleapis.com/css?family=Gabarito|Roboto+Slab:500,400,300" rel="stylesheet" type="text/css"/>
+<meta content="#fafafa" name="theme-color"/>
+<meta content="VczqzsxwsqxPjqIp5M_vX8c9hqCr2zTp18UQAEplyV4" name="google-site-verification">
+</meta></meta><link href="https://blog.aalmazan.com/posts/2024-01-todo-everything-begins.html" rel="canonical"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Allan Almazan", "item": "https://blog.aalmazan.com"}, {"@type": "ListItem", "position": 2, "name": "Posts", "item": "https://blog.aalmazan.com/posts"}, {"@type": "ListItem", "position": 3, "name": "2024 01 todo everything begins", "item": "https://blog.aalmazan.com/posts/2024-01-todo-everything-begins.html"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "author": {"@type": "Person", "name": "Allan Almazan"}, "publisher": {"@type": "Organization", "name": "Allan Almazan"}, "headline": "TODO: Everything", "about": "projects", "datePublished": "2024-01-11 00:00"}</script></head>
+<body class="dark:text-white">
+<div class="max-w-3xl px-4 mx-auto sm:px-6 xl:max-w-5xl xl:px-0">
+<div class="flex flex-col justify-between h-screen mb-auto">
+<header class="pt-8 pb-10 flex flex-row items-center justify-between">
+<h1 class="font-medium"><a href="https://blog.aalmazan.com/">Allan Almazan</a></h1>
+<div class="flex text-base leading-5 items-center justify-between w-100 pl-10 space-x-3">
+<a class="" href="https://blog.aalmazan.com/">Home</a>
+<a class="" href="https://blog.aalmazan.com/pages/about.html">About</a>
+<a class="" href="https://blog.aalmazan.com/archives">Archives</a>
+<a class="" href="https://blog.aalmazan.com/categories">Categories</a>
+</div>
+</header>
+<div class="content mb-auto flex flex-col">
+<div class="flex justify-center align-items-center pt-6">
+<div class="flex flex-col justify-center text-center">
+<h1 class="text-3xl mb-1">TODO: Everything</h1>
+<time class="mb-1" datetime="2024-01-11T00:00:00-08:00">
+      Jan 11, 2024
+    </time>
+<!--    <a class="text-xs font-medium uppercase text-gray-400 hover:text-gray-100"-->
+<div class="flex justify-center">
+<a class="badge badge-outline badge-sm" href="https://blog.aalmazan.com/category/projects.html">
+        projects
+      </a>
+</div>
+</div>
+</div>
+<div class="post">
+<div class="flex pb-0 justify-center">
+<article class="pt-4 pb-8 prose max-w-prose">
+<p>New year, more personal projects to procrastinate on.</p>
+<p>A few years ago I thought an idea called "TODO Everything" which can be summed up as "The TODO app that does
+everything." I had ideas of grandeur where it would have every feature imaginable; integrate a bunch of different
+services; <em>be</em> a bunch of different services; have complex backend systems that would do anything you need. It's an
+insane idea, and I always loved thinking
+about it. Essentially, it's something like a "Scope Creep Simulator", or maybe the absolute opposite of
+what <a href="https://en.wikipedia.org/wiki/Code_golf">code golf</a> is.</p>
+<p>The purpose of Todo apps is pretty simple: people need toy/example/test apps to build, especially when learning a new
+language/framework/platform/etcetera. In the web app world there's a few that come to mind: blogs, social media clones,
+and Todo apps. Essentially, they're just <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> apps with
+a database (or some type of data storage) that can maybe have multiple users and maybe a few actions can be done (i.e.
+completing a Todo item, or liking a post). That's it.</p>
+<p>Of course, you'd want the scope to be minimal since you're just learning your shiny new language or tool, but it can get
+exponentially more interesting when you silence your inner <em>Project Manager/Lead Developer</em> and tell yourself, "You know
+what? We <em>can</em> add a few more weeks to this feature in order to get it working on a local Kubernetes cluster running on
+your Raspberry Pis."</p>
+<p>So, a month or so ago that's what I did. I've engineered myself into corners and bulldozed those walls to create even
+more corners, but it has been interesting and mostly fun to work on. Will this be a major start up that will change
+people's lives for the better and solve global healthcare? No. 99.999% guaranteed to do nothing, but some learning's
+getting done, maybe it'll help other people as well.</p>
+<p>I've created the GitHub organization <a href="https://github.com/todo-everything">todo-everything</a> that will house everything
+"TODO: Everything" (actual "real" name not confirmed). So far the following are up in mostly working condition with an
+infinity of features left to go.</p>
+<ul>
+<li>Backend written in Python + Django. Mainly using Django for its ORM
+  and <a href="https://www.django-rest-framework.org/"><code>django-rest-framework</code></a><ul>
+<li><a href="https://github.com/todo-everything/todo-everything-django">https://github.com/todo-everything/todo-everything-django</a></li>
+</ul>
+</li>
+<li>A frontend written in TypeScript using <a href="https://www.solidjs.com/">SolidJS</a> and <a href="https://vitejs.dev/">Vite</a> (
+  the <code>solid-ts</code> vite template). This was written first to get a feel for
+  the API. Probably should be written later, but that's a story for a different post.<ul>
+<li><a href="https://github.com/todo-everything/todo-everything-solid">https://github.com/todo-everything/todo-everything-solid</a></li>
+</ul>
+</li>
+<li>Another frontend written TypeScript using <a href="https://react.dev/">React</a>, <a href="https://swc.rs/">SWC</a> and
+  also <a href="https://vitejs.dev/">Vite</a> (<code>react-swc-ts</code> template).<ul>
+<li><a href="https://github.com/todo-everything/todo-everything-react">https://github.com/todo-everything/todo-everything-react</a></li>
+</ul>
+</li>
+<li>Everything OPs related. So far just some Ansible and Kubernetes files, but it also supports ARM because of Raspberry
+  Pis.<ul>
+<li><a href="https://github.com/todo-everything/todo-everything-ops">https://github.com/todo-everything/todo-everything-ops</a></li>
+</ul>
+</li>
+</ul>
+<p>I've learned more in the past few months than I have even in some other jobs since it's completely void of any
+"business" and "logic". At least for now. Hah, but no this will almost never be a viable business idea. I do have a
+feature idea for <code>todo-everything</code>, though, that would integrate Stripe (initially) charge a user a metered rate for
+each Todo item the create and complete. Another very wild idea, but I think I've actually seen a variant of that on an
+existing iOS Todo app... Future post ideas are abundant, but that's the end of this one for now.</p>
+<p>Dreaming big and making my backlog infinite when time is very much limited. This is 2024.</p>
+</article>
+</div>
+</div>
+</div>
+<footer class="mt-auto pb-2 flex flex-col">
+<p class="prose mx-auto" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+<a href="https://blog.aalmazan.com" property="dct:title" rel="cc:attributionURL">
+    blog.aalmazan.com
+  </a> by
+  <a href="https://github.com/aalmazan/" property="cc:attributionName" rel="cc:attributionURL dct:creator">
+    Allan Almazan
+  </a> is licensed under
+  <a class="inline-block" href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" rel="license noopener noreferrer" target="_blank">
+    CC BY 4.0
+    <img class="not-prose h-5 w-5 p-0 inline-block" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"/>
+<img class="not-prose h-5 w-5 p-0 inline-block" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"/>
+</a>
+</p></footer> </div>
+<!-- Cloudflare Web Analytics -->
+<script data-cf-beacon='{"token": "0afb0dc2306f493f8929d7ca21aa69d0"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script>
+<!-- End Cloudflare Web Analytics --></div>
+</body>
+</html>
